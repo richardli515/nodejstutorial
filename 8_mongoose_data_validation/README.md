@@ -1,22 +1,16 @@
-Crud with mongo db
+Mongoose data validation
+We need to use both mongoose validation and joi for database level and api level validation.
 
-In relational databases we have tables and rows, in MongoDB we have collections and documents. A document can contain sub-documents. 
+We can define a type independently or define it with constraints in obj, even with async validators.
 
-Brew install mongodb
-Npm i mongoose
-sudo mkdir -p /data/db
-sudo chown -R `id -un` /data/db
-mongd (mongo daemon)
+new mongoose.Schema({ name: { type: String, required: true } })
 
-mongoose.connect()
-mongoose.Schema()
+- Validation logic is executed by Mongoose prior to saving a document to the database. You can also trigger it manually by calling the validate() method. 
+- Built-in validators: 
+- Strings: minlength, maxlength, match, enum 
+- Numbers: min, max 
+- Dates: min, max 
+- All types: required
 
-Once we have a schema, we need to compile it into a model. A model is like a class. It’s a blueprint for creating objects
-
-Schema type: String, Number, Date, Buffer(to store binary data), Boolean, ObjectID(unique id), Array
-
-.save() return a Promise
-.find() 
-
-Command line import:
-mongoimport --db mongo-exercises --collection courses --drop --file exercise-data.json --jsonArray
+- Strings: lowercase, uppercase, trim 
+- All types: get, set (to define a custom getter/setter)
