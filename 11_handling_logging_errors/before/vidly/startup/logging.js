@@ -28,5 +28,5 @@ module.exports = function(){
     });
 
     // throw new Error('Something failed during startup.');
-    const p = Promise.reject(new Error('Something failed miserably!'));
+    // const p = Promise.reject(new Error('Something failed miserably!'));
 }
